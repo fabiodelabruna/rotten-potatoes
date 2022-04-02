@@ -15,8 +15,8 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v1.14.1
         with:
-          username: ${{ secrets.DOCKERHUB_USER }}
-          password: ${{ secrets.DOCKERHUB_PWD }}
+          username: ${{secrets.DOCKERHUB_USER}}
+          password: ${{secrets.DOCKERHUB_PWD}}
           
       - name: Docker Build and Push
         uses: docker/build-push-action@v2.10.0
@@ -24,6 +24,6 @@ jobs:
           context: ./src
           file: ./src/Dockerfile
           push: true
-          tags:
+          tags: |
             fabiodelabruna/rotten-potatoes:latest
-            fabiodelabruna/rotten-potatoes:${{ github.run_number }}
+            fabiodelabruna/rotten-potatoes:${{github.run_number}}
